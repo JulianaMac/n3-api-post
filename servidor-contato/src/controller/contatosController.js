@@ -1,3 +1,4 @@
+
 const model = require("../model/contatos");
 
 const getAll = (request, response) => {
@@ -5,21 +6,13 @@ const getAll = (request, response) => {
   response.status(200).send(model.agenda);
 };
 
-// const add = (request, response) => {
-
-//   let contato = request.body
-//   let verificaContato = model.agenda.contatos
-  
-
-// }
-
 const add = (request, response) => {
 
   let contato = request.body
   let baseDados = model.agenda.contatos
 
   contato.id = Math.random().toString(36).substr(-8)
-  
+
 
   if (!contato.nome || !contato.dataNascimento || !contato.celular) {
     response.status(400).send("Dados inválidos");
@@ -32,10 +25,13 @@ const add = (request, response) => {
     }
   }
 
+
   }
+
+
+
 
 module.exports = {
   getAll,
   add
 }
-
